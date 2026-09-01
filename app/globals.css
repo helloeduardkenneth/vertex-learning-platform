@@ -18,6 +18,10 @@
   --vertex-neutral-50: #FAFAFC;
   --vertex-white: #FFFFFF;
 
+  /* Vertex Canvas & Accent Colors */
+  --vertex-canvas: #FBF8F5;
+  --vertex-canvas-line: #F0E7E0;
+
   /* Vertex Shadows */
   --vertex-shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
   --vertex-shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.08);
@@ -30,6 +34,9 @@
 }
 
 @theme {
+  --color-canvas: var(--vertex-canvas);
+  --color-canvas-line: var(--vertex-canvas-line);
+
   --color-primary-500: #F97316;
   --color-primary-400: #FB923C;
   --color-primary-300: #FDBA74;
@@ -87,3 +94,15 @@ body {
 .shadow-card-xl {
   box-shadow: 0 20px 40px -8px rgba(15, 23, 42, 0.12);
 }
+
+.bg-striped-canvas {
+  background-color: var(--vertex-canvas);
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--vertex-canvas-line),
+    var(--vertex-canvas-line) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+}
+

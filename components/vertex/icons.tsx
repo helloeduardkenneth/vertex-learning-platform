@@ -264,8 +264,97 @@ export function AccessibilityIcon({ size = 24, className = "", ...props }: IconP
 
 export function NextjsLogo({ size = 24, className = "", ...props }: IconProps) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} {...props}>
-      <path d="M12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0ZM18.2323 18.7846L8.43585 6.16615H10.5985L19.4677 17.6523C19.0886 18.0646 18.6738 18.4446 18.2323 18.7846ZM15.5642 6.16615V13.8462H13.7179V6.16615H15.5642Z" />
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 180 180"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      {...props}
+    >
+      <path
+        d="M149.508 159.43L60.999 45.4801H45V134.52H60.2974V67.0601L137.498 166.495C141.777 164.444 145.795 162.067 149.508 159.43Z"
+        fill="currentColor"
+      />
+      <path
+        d="M120 45.4801H135.297V134.52H120V45.4801Z"
+        fill="currentColor"
+      />
     </svg>
   );
 }
+
+export function DockerLogo({ size = 24, className = "", ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} {...props}>
+      {/* Containers */}
+      <rect x="18" y="16" width="6" height="5" rx="1" fill="#0284C7" stroke="#0369A1" strokeWidth="1" />
+      <rect x="26" y="16" width="6" height="5" rx="1" fill="#0284C7" stroke="#0369A1" strokeWidth="1" />
+      <rect x="34" y="16" width="6" height="5" rx="1" fill="#0284C7" stroke="#0369A1" strokeWidth="1" />
+      <rect x="18" y="23" width="6" height="5" rx="1" fill="#0284C7" stroke="#0369A1" strokeWidth="1" />
+      <rect x="26" y="23" width="6" height="5" rx="1" fill="#0284C7" stroke="#0369A1" strokeWidth="1" />
+      <rect x="34" y="23" width="6" height="5" rx="1" fill="#0284C7" stroke="#0369A1" strokeWidth="1" />
+      <rect x="42" y="23" width="6" height="5" rx="1" fill="#0284C7" stroke="#0369A1" strokeWidth="1" />
+      {/* Whale Body */}
+      <path
+        d="M58 35C56.5 31 52 30 48 30C46 30 44.5 30.5 43 31.5C41 29 38 28 34 28H14C12 28 10.5 29.5 10 31.5C7.5 32.5 5 35 4.5 38C4 41 6 44 9 45.5C12 47 16 48 21 48C33 48 44 45 52 40C55 38 57.5 36.5 58 35Z"
+        fill="#38BDF8"
+      />
+      <path
+        d="M58 35C56.5 31 52 30 48 30C46 30 44.5 30.5 43 31.5C41 29 38 28 34 28H14C12 28 10.5 29.5 10 31.5C7.5 32.5 5 35 4.5 38C4 41 6 44 9 45.5C12 47 16 48 21 48C33 48 44 45 52 40C55 38 57.5 36.5 58 35Z"
+        stroke="#0284C7"
+        strokeWidth="2"
+      />
+      {/* Eye */}
+      <circle cx="16" cy="38" r="1.5" fill="#0F172A" />
+      {/* Whale Tail */}
+      <path
+        d="M52 32C54 28 57 24 61 24C61 28 59 32 56 34"
+        stroke="#0284C7"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+export function TypeScriptLogo({ size = 24, className = "", ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} {...props}>
+      <rect width="64" height="64" rx="14" fill="#3178C6" />
+      <path
+        d="M16 26H32M24 26V46M36 43C38 45.5 41.5 47 45.5 47C50.5 47 54 44 54 39.5C54 34.5 49.5 33 45 32C41.5 31.2 39 30 39 27.5C39 25 41.5 23 45 23C48 23 50.5 24.2 52.5 26"
+        stroke="white"
+        strokeWidth="4.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function StarIcon({ size = 20, className = "", variant = "outline", ...props }: IconProps) {
+  if (variant === "filled") {
+    return (
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} {...props}>
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+      </svg>
+    );
+  }
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props}>
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+    </svg>
+  );
+}
+
+export function ArrowRightIcon({ size = 20, className = "", ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props}>
+      <line x1="5" y1="12" x2="19" y2="12" />
+      <polyline points="12 5 19 12 12 19" />
+    </svg>
+  );
+}
+

@@ -31,6 +31,8 @@ export interface CourseCardProps {
   level?: string;
   duration?: string;
   modules?: string;
+  layout?: "row" | "stacked";
+  iconContainerClassName?: string;
   className?: string;
   onClick?: () => void;
 }
@@ -42,9 +44,71 @@ export function CourseCard({
   level = "Intermediate",
   duration = "18h 24m",
   modules = "12 modules",
+  layout = "row",
+  iconContainerClassName,
   className = "",
   onClick,
 }: CourseCardProps) {
+  if (layout === "stacked") {
+    const isClickable = Boolean(onClick);
+    return (
+      <div
+        role={isClickable ? "button" : undefined}
+        tabIndex={isClickable ? 0 : undefined}
+        onKeyDown={
+          isClickable
+            ? (e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  onClick?.();
+                } else if (e.key === " " || e.key === "Spacebar") {
+                  e.preventDefault();
+                  if (!e.repeat) {
+                    onClick?.();
+                  }
+                }
+              }
+            : undefined
+        }
+        className={`group relative flex flex-col justify-between rounded-[20px] border border-[#E2E8F0] bg-white p-7 shadow-card-sm transition-all duration-200 hover:border-[#CBD5E1] hover:shadow-card-md ${
+          isClickable ? "cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[#FB923C]" : ""
+        } ${className}`}
+        onClick={onClick}
+      >
+        <div>
+          <div
+            className={`flex h-[72px] w-[72px] items-center justify-center rounded-[16px] shadow-xs ${
+              iconContainerClassName || "bg-[#0F172A] text-white"
+            }`}
+          >
+            {icon}
+          </div>
+          <h3 className="mt-6 text-[22px] font-bold font-display text-[#0F172A] leading-snug transition-colors group-hover:text-[#F97316]">
+            {title}
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-[#64748B]">
+            {description}
+          </p>
+        </div>
+
+        <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-[#F1F5F9] pt-5 text-xs font-medium text-[#64748B]">
+          <div className="flex items-center gap-1.5">
+            <BarChartIcon size={16} />
+            <span>{level}</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <ClockIcon size={16} />
+            <span>{duration}</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <DocIcon size={16} />
+            <span>{modules}</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <Card className={`cursor-pointer ${className}`} onClick={onClick}>
       <div>

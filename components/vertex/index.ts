@@ -6,3 +6,5 @@ export * from "./status-indicator";
 export * from "./progress-bar";
 export * from "./card";
 export * from "./navigation";
+export * from "./avatar";
+
