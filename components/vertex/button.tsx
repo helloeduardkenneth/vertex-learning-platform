@@ -2,7 +2,7 @@ import React from "react";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "tertiary" | "text";
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl";
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   forceState?: "default" | "hover" | "disabled";
@@ -30,6 +30,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       sm: "h-[34px] px-3 text-xs gap-1.5 rounded-[10px]",
       md: "h-[40px] px-4 text-sm gap-2 rounded-[12px]",
       lg: "h-[44px] px-5 text-sm md:text-base gap-2 rounded-[12px]",
+      xl: "h-[56px] sm:h-[60px] px-7 text-base sm:text-[17px] font-semibold gap-2.5 rounded-[12px] shadow-sm",
     }[size];
 
     // Variant style classes

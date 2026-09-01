@@ -103,16 +103,17 @@ Sampled from `design/vertex-home.png` (1024×1536) and treated as 1:1 CSS px.
 | File | Change |
 | --- | --- |
 | `app/globals.css` | add `--color-canvas`, `--color-canvas-line` |
-| `app/page.tsx` | replace boilerplate with the home page |
-| `components/layout/page-frame.tsx` | new |
-| `components/layout/site-header.tsx` | new |
-| `components/ui/avatar.tsx` | new |
-| `components/brand/course-marks.tsx` | new |
-| `components/home/hero.tsx` | new |
-| `components/home/chart-decoration.tsx` | new |
-| `components/ui/button.tsx` | add `xl` size |
-| `components/ui/search-input.tsx` | add `size` prop |
-| `components/cards/course-card.tsx` | add `stacked` layout |
+| `app/page.tsx` | replace with the Vertex home page |
+| `app/design-system/page.tsx` | new: preserve the design system showcase at `/design-system` |
+| `components/layout/page-frame.tsx` | new: 960px centered column, side hairlines, striped gutters |
+| `components/layout/site-header.tsx` | new: header with logo, navigation links, notification bell, avatar |
+| `components/ui/avatar.tsx` | new: user avatar component |
+| `components/brand/course-marks.tsx` | new: SVG marks for Next.js, Docker, TypeScript |
+| `components/home/hero.tsx` | new: eyebrow pill, hero heading, subtitle, CTA button, search bar |
+| `components/home/chart-decoration.tsx` | new: blurred orange vertical bars decoration |
+| `components/vertex/button.tsx` | add `xl` size support |
+| `components/vertex/card.tsx` | add stacked layout support for course cards |
+| `components/vertex/icons.tsx` | add Docker, TypeScript, and Star icons |
 
 ## Requirements
 
