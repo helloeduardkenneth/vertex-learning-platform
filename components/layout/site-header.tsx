@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { VertexLogo, BellIcon } from "@/components/vertex/icons";
-import { Avatar } from "@/components/vertex/avatar";
+import { SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
 
 export interface SiteHeaderProps {
   className?: string;
@@ -50,17 +50,29 @@ export function SiteHeader({ className = "" }: SiteHeaderProps) {
           <BellIcon size={20} />
         </button>
 
-        <Link
-          href="/profile"
-          aria-label="User Profile"
-          className="outline-none focus-visible:ring-2 focus-visible:ring-[#FB923C] rounded-full"
-        >
-          <Avatar
-            initials="SC"
-            size={42}
-            className="ring-2 ring-white/80"
+        <Show when="signed-out">
+          <div className="flex items-center gap-3">
+            <SignInButton mode="modal">
+              <button className="text-sm font-medium text-[#0F172A] transition-colors hover:text-[#F97316] outline-none focus-visible:ring-2 focus-visible:ring-[#FB923C] rounded">
+                Sign In
+              </button>
+            </SignInButton>
+            <SignUpButton mode="modal">
+              <button className="text-sm font-medium bg-[#0F172A] text-white px-4 py-2 transition-colors hover:bg-[#F97316] outline-none focus-visible:ring-2 focus-visible:ring-[#FB923C] rounded-full">
+                Sign Up
+              </button>
+            </SignUpButton>
+          </div>
+        </Show>
+        <Show when="signed-in">
+          <UserButton 
+            appearance={{
+              elements: {
+                userButtonAvatarBox: "h-[42px] w-[42px] ring-2 ring-white/80"
+              }
+            }}
           />
-        </Link>
+        </Show>
       </div>
     </header>
   );
