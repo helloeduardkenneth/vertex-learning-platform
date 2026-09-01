@@ -40,7 +40,7 @@ later without touching the markup.
 
 Sampled from `design/vertex-home.png` (1024×1536) and treated as 1:1 CSS px.
 
-- Framed content column: vertical hairlines at x≈33 and x≈990 → **960px column**, centered, with
+- Framed content column: centered **1440px column** with side hairlines and
   diagonally striped gutters filling the rest of the viewport.
 - Header: 96px tall, bottom hairline, 40px horizontal padding, avatar 48px.
 - Eyebrow pill: 210×40, ~11px uppercase, ~0.12em tracking, primary-500 on a near-white fill.
@@ -74,12 +74,11 @@ Sampled from `design/vertex-home.png` (1024×1536) and treated as 1:1 CSS px.
      Playfair title, divider above the meta row). `row` stays the current default so
      `/design-system` renders unchanged.
 4. **New, genuinely missing pieces** (nothing in the library covers them):
-   - `components/layout/page-frame.tsx` — the 960px column, its side hairlines, and the striped
+   - `components/layout/page-frame.tsx` — the 1440px column, its side hairlines, and the striped
      gutters (CSS `repeating-linear-gradient`, no image).
    - `components/layout/site-header.tsx` — composes the existing `Navbar` with the right-side
      actions (notification bell, avatar).
-   - `components/ui/avatar.tsx` — circular avatar; renders initials on a neutral fill.
-   - `components/brand/course-marks.tsx` — inline SVG marks for Next.js, Docker and TypeScript.
+   - `components/vertex/avatar.tsx` — circular avatar; renders initials on a neutral fill with error fallback.
    - `components/home/hero.tsx`, `components/home/chart-decoration.tsx` — the two composed sections
      that only the home page uses.
 5. **Avatar is initials, not a photo.** The reference shows a user photo; there is no such asset in
@@ -105,15 +104,14 @@ Sampled from `design/vertex-home.png` (1024×1536) and treated as 1:1 CSS px.
 | `app/globals.css` | add `--color-canvas`, `--color-canvas-line` |
 | `app/page.tsx` | replace with the Vertex home page |
 | `app/design-system/page.tsx` | new: preserve the design system showcase at `/design-system` |
-| `components/layout/page-frame.tsx` | new: 960px centered column, side hairlines, striped gutters |
+| `components/layout/page-frame.tsx` | new: 1440px centered column, side hairlines, striped gutters |
 | `components/layout/site-header.tsx` | new: header with logo, navigation links, notification bell, avatar |
-| `components/ui/avatar.tsx` | new: user avatar component |
-| `components/brand/course-marks.tsx` | new: SVG marks for Next.js, Docker, TypeScript |
+| `components/vertex/avatar.tsx` | new: user avatar component with initials fallback |
 | `components/home/hero.tsx` | new: eyebrow pill, hero heading, subtitle, CTA button, search bar |
 | `components/home/chart-decoration.tsx` | new: blurred orange vertical bars decoration |
 | `components/vertex/button.tsx` | add `xl` size support |
 | `components/vertex/card.tsx` | add stacked layout support for course cards |
-| `components/vertex/icons.tsx` | add Docker, TypeScript, and Star icons |
+| `components/vertex/icons.tsx` | add Docker, TypeScript, Star, and ArrowRight icons; export Next.js, Vertex, and Bell icons |
 
 ## Requirements
 

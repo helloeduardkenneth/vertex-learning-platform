@@ -50,9 +50,24 @@ export function CourseCard({
   onClick,
 }: CourseCardProps) {
   if (layout === "stacked") {
+    const isClickable = Boolean(onClick);
     return (
       <div
-        className={`group relative flex flex-col justify-between rounded-[20px] border border-[#E2E8F0] bg-white p-7 shadow-card-sm transition-all duration-200 hover:border-[#CBD5E1] hover:shadow-card-md cursor-pointer ${className}`}
+        role={isClickable ? "button" : undefined}
+        tabIndex={isClickable ? 0 : undefined}
+        onKeyDown={
+          isClickable
+            ? (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  onClick?.();
+                }
+              }
+            : undefined
+        }
+        className={`group relative flex flex-col justify-between rounded-[20px] border border-[#E2E8F0] bg-white p-7 shadow-card-sm transition-all duration-200 hover:border-[#CBD5E1] hover:shadow-card-md ${
+          isClickable ? "cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[#FB923C]" : ""
+        } ${className}`}
         onClick={onClick}
       >
         <div>

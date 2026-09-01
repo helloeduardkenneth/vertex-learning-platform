@@ -10,7 +10,7 @@ export interface SiteHeaderProps {
 export function SiteHeader({ className = "" }: SiteHeaderProps) {
   return (
     <header
-      className={`flex h-[88px] w-full items-center justify-between border-b border-[#F0E7E0] px-6 sm:px-10 lg:px-14 ${className}`}
+      className={`flex min-h-[88px] w-full items-center justify-between border-b border-[#F0E7E0] px-6 sm:px-10 lg:px-14 ${className}`}
     >
       {/* Brand & Main Nav */}
       <div className="flex items-center gap-8 sm:gap-10">
@@ -24,7 +24,7 @@ export function SiteHeader({ className = "" }: SiteHeaderProps) {
           </span>
         </Link>
 
-        <nav className="flex items-center gap-6 sm:gap-8">
+        <nav className="hidden sm:flex items-center gap-6 sm:gap-8">
           <Link
             href="/courses"
             className="text-sm font-medium text-[#0F172A] transition-colors hover:text-[#F97316] outline-none focus-visible:ring-2 focus-visible:ring-[#FB923C] rounded"
@@ -56,7 +56,6 @@ export function SiteHeader({ className = "" }: SiteHeaderProps) {
           className="outline-none focus-visible:ring-2 focus-visible:ring-[#FB923C] rounded-full"
         >
           <Avatar
-            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=120&auto=format&fit=crop"
             initials="SC"
             size={42}
             className="ring-2 ring-white/80"

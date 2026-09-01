@@ -39,12 +39,18 @@ export default function VertexDesignSystemPage() {
   const [activeNavTab, setActiveNavTab] = useState<string>("Courses");
   const [searchValue, setSearchValue] = useState<string>("");
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedColor(text);
-    setTimeout(() => {
-      setCopiedColor(null);
-    }, 1800);
+  const copyToClipboard = async (text: string) => {
+    try {
+      if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+        setCopiedColor(text);
+        setTimeout(() => {
+          setCopiedColor(null);
+        }, 1800);
+      }
+    } catch {
+      // Ignore clipboard write rejection or unavailable API
+    }
   };
 
   const primaryColors = [
@@ -622,10 +628,14 @@ export default function VertexDesignSystemPage() {
 
             <div className="space-y-4">
               <div>
-                <label className="block text-xs font-medium text-[#64748B] mb-1.5">
+                <label
+                  htmlFor="design-system-search-input"
+                  className="block text-xs font-medium text-[#64748B] mb-1.5"
+                >
                   Search / Text Input
                 </label>
                 <SearchInput
+                  id="design-system-search-input"
                   value={searchValue}
                   onChange={(e) => setSearchValue(e.target.value)}
                   placeholder="Search anything..."
@@ -633,10 +643,14 @@ export default function VertexDesignSystemPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-[#64748B] mb-1.5">
+                <label
+                  htmlFor="design-system-select"
+                  className="block text-xs font-medium text-[#64748B] mb-1.5"
+                >
                   Select
                 </label>
                 <Select
+                  id="design-system-select"
                   options={[
                     { label: "Most Relevant", value: "relevant" },
                     { label: "Newest First", value: "newest" },

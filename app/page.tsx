@@ -90,6 +90,7 @@ export default function HomePage() {
               <span>View all courses</span>
               <ArrowRightIcon
                 size={16}
+                aria-hidden="true"
                 className="transition-transform group-hover:translate-x-0.5"
               />
             </Link>
@@ -122,7 +123,7 @@ export default function HomePage() {
           <div className="mt-14 flex items-center justify-center gap-4">
             <div className="h-[1px] flex-1 bg-[#F0E7E0]" />
             <div className="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-[#0F172A]">
-              <StarIcon size={16} className="text-[#F97316]" />
+              <StarIcon size={16} aria-hidden="true" className="text-[#F97316]" />
               <span>New courses and lessons added every week.</span>
             </div>
             <div className="h-[1px] flex-1 bg-[#F0E7E0]" />

@@ -34,8 +34,8 @@
 }
 
 @theme {
-  --color-canvas: #FBF8F5;
-  --color-canvas-line: #F0E7E0;
+  --color-canvas: var(--vertex-canvas);
+  --color-canvas-line: var(--vertex-canvas-line);
 
   --color-primary-500: #F97316;
   --color-primary-400: #FB923C;
@@ -95,16 +95,12 @@ body {
   box-shadow: 0 20px 40px -8px rgba(15, 23, 42, 0.12);
 }
 
-.bg-canvas {
-  background-color: var(--vertex-canvas);
-}
-
 .bg-striped-canvas {
-  background-color: #FBF8F5;
+  background-color: var(--vertex-canvas);
   background-image: repeating-linear-gradient(
     45deg,
-    #F0E7E0,
-    #F0E7E0 1px,
+    var(--vertex-canvas-line),
+    var(--vertex-canvas-line) 1px,
     transparent 1px,
     transparent 8px
   );

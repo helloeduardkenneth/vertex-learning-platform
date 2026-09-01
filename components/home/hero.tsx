@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import { SearchIcon, ArrowRightIcon } from "@/components/vertex/icons";
-import { Button } from "@/components/vertex/button";
 
 export interface HeroProps {
   className?: string;
@@ -35,15 +34,12 @@ export function Hero({ className = "" }: HeroProps) {
 
       {/* Primary CTA */}
       <div className="mt-8">
-        <Link href="/courses" tabIndex={-1}>
-          <Button
-            variant="primary"
-            size="xl"
-            rightIcon={<ArrowRightIcon size={18} />}
-            className="shadow-md hover:shadow-lg transition-all"
-          >
-            Explore Courses
-          </Button>
+        <Link
+          href="/courses"
+          className="inline-flex h-[56px] sm:h-[60px] items-center justify-center gap-2.5 rounded-[12px] bg-[#F97316] px-7 text-base sm:text-[17px] font-semibold text-white shadow-md transition-all duration-150 hover:bg-[#EA580C] hover:shadow-lg active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-[#FB923C] focus-visible:ring-offset-2 select-none"
+        >
+          <span>Explore Courses</span>
+          <ArrowRightIcon size={18} aria-hidden="true" className="shrink-0" />
         </Link>
       </div>
 
@@ -51,14 +47,16 @@ export function Hero({ className = "" }: HeroProps) {
       <div className="mt-12 w-full max-w-[750px]">
         <div className="group relative flex h-[68px] sm:h-[76px] w-full items-center rounded-[14px] border border-[#E2E8F0] bg-white px-5 sm:px-6 shadow-card-sm transition-all hover:border-[#CBD5E1] hover:shadow-card-md focus-within:border-[#FB923C] focus-within:ring-2 focus-within:ring-[#FB923C]/20">
           <div className="pointer-events-none flex items-center text-[#64748B]">
-            <SearchIcon size={22} />
+            <SearchIcon size={22} aria-hidden="true" />
           </div>
 
           <input
             type="search"
+            readOnly
+            title="Search is not yet available"
             aria-label="Search learning content"
             placeholder="Ask anything about your learning..."
-            className="h-full w-full bg-transparent pl-4 pr-16 text-base sm:text-[17px] text-[#0F172A] placeholder:text-[#64748B] outline-none"
+            className="h-full w-full bg-transparent pl-4 pr-16 text-base sm:text-[17px] text-[#0F172A] placeholder:text-[#64748B] outline-none cursor-default"
           />
 
           <div className="absolute right-4 sm:right-5 flex items-center pointer-events-none">

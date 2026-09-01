@@ -324,7 +324,7 @@ export function TypeScriptLogo({ size = 24, className = "", ...props }: IconProp
     <svg width={size} height={size} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} {...props}>
       <rect width="64" height="64" rx="14" fill="#3178C6" />
       <path
-        d="M16 26H32M24 26V46M36 43C38 45.5 41.5 47 45.5 47C50.5 47 54 44 54 39.5C54 34.5 49.5 33 45 32C41.5 31.2 39 30 39 27.5C39 25 41.5 23 45 23C48 23 50.5 24.2 52.5 26M36 34C37 34 38 34 39 34"
+        d="M16 26H32M24 26V46M36 43C38 45.5 41.5 47 45.5 47C50.5 47 54 44 54 39.5C54 34.5 49.5 33 45 32C41.5 31.2 39 30 39 27.5C39 25 41.5 23 45 23C48 23 50.5 24.2 52.5 26"
         stroke="white"
         strokeWidth="4.5"
         strokeLinecap="round"
