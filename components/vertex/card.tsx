@@ -58,9 +58,14 @@ export function CourseCard({
         onKeyDown={
           isClickable
             ? (e) => {
-                if (e.key === "Enter" || e.key === " ") {
+                if (e.key === "Enter") {
                   e.preventDefault();
                   onClick?.();
+                } else if (e.key === " " || e.key === "Spacebar") {
+                  e.preventDefault();
+                  if (!e.repeat) {
+                    onClick?.();
+                  }
                 }
               }
             : undefined
